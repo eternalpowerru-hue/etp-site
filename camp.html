@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAMP — ENTER THE POWER</title>
+<meta name="description" content="Enter The Power winter camp — Jan 3–9, Moscow.">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-banner-inner">
+    <p><span class="lang-ru">Мы используем cookie-файлы для корректной работы сайта и запоминания ваших настроек. Подробнее — в <a href="privacy.html#cookies">политике cookie</a>.</span><span class="lang-en">We use cookies to make the site work properly and remember your preferences. More in our <a href="privacy.html#cookies">cookie policy</a>.</span></p>
+    <button type="button" id="cookieAccept" class="btn"><span class="lang-ru">Принять</span><span class="lang-en">Accept</span></button>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <a href="index.html" class="logo"><span class="mark"><img src="assets/logo.png" alt="ETP"></span>ENTER THE POWER</a>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="videos.html"><span class="lang-ru">видео</span><span class="lang-en">videos</span></a></li>
+      <li><a href="shop.html"><span class="lang-ru">магазин</span><span class="lang-en">shop</span></a></li>
+      <li><a href="camp.html"><span class="lang-ru">кэмп</span><span class="lang-en">camp</span></a></li>
+      <li><a href="course.html"><span class="lang-ru">курс</span><span class="lang-en">course</span></a></li>
+      <li><a href="music.html"><span class="lang-ru">музыка</span><span class="lang-en">music</span></a></li>
+    </ul>
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" data-set-lang="ru" class="active">RU</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="drawer" id="drawer">
+  <ul>
+    <li><a href="videos.html"><span class="lang-ru">Видео</span><span class="lang-en">Videos</span></a></li>
+    <li><a href="shop.html"><span class="lang-ru">Магазин</span><span class="lang-en">Shop</span></a></li>
+    <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
+    <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
+    <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+  </ul>
+  <div class="lang-switch" id="langSwitchMobile">
+    <button type="button" data-set-lang="ru" class="active">RU</button>
+    <button type="button" data-set-lang="en">EN</button>
+  </div>
+</div>
+<section id="camp">
+  <div class="camp-hero">
+    <div class="camp-hero-media"><img src="https://picsum.photos/seed/entrepower-camp/1800/1200" alt=""></div>
+    <div class="wrap camp-hero-content">
+      <span class="eyebrow reveal"><span class="lang-ru">Зимний интенсив</span><span class="lang-en">Winter intensive</span></span>
+      <h2 class="reveal" style="margin-top:18px;">ENTER THE<br>POWER CAMP</h2>
+      <p class="camp-lead reveal"><span class="lang-ru">Лагерь нацелен на развитие павер брейка и всех возможных силовых показателей, углубление в культуру павера и сплочения ребят, которые топят за одно дело.</span><span class="lang-en">The camp is focused on developing power breaking and every strength metric that comes with it — going deeper into power culture and bringing together people who are all in for the same cause.</span></p>
+      <div class="camp-meta reveal">
+        <div><b><span class="lang-ru">3—9 января</span><span class="lang-en">Jan 3—9</span></b><span><span class="lang-ru">7 дней</span><span class="lang-en">7 days</span></span></div>
+        <div><b><span class="lang-ru">Москва</span><span class="lang-en">Moscow</span></b><span><span class="lang-ru">локация</span><span class="lang-en">location</span></span></div>
+        <div><b><span class="lang-ru">50 мест</span><span class="lang-en">50 seats</span></b><span><span class="lang-ru">лимит</span><span class="lang-en">limited</span></span></div>
+        <div><b>51 900 ₽</b><span><span class="lang-ru">цена до 1 ноября</span><span class="lang-en">price until Nov 1</span></span></div>
+      </div>
+      <button type="button" id="bookTriggerBtn" class="btn reveal"><span class="lang-ru">забронировать место</span><span class="lang-en">reserve your seat</span></button>
+    </div>
+  </div>
+
+  <div class="camp-countdown">
+    <div class="wrap camp-countdown-inner reveal">
+      <span class="eyebrow"><span class="lang-ru">Осталось времени</span><span class="lang-en">Time remaining</span></span>
+      <div class="camp-price camp-price-label"><span class="lang-ru">ДО ПОВЫШЕНИЯ ЦЕНЫ</span><span class="lang-en">UNTIL THE PRICE INCREASE</span></div>
+      <div class="countdown" data-deadline="2026-11-01T00:00:00">
+        <div class="cd-unit"><span class="cd-num" data-unit="days">00</span><span class="cd-label"><span class="lang-ru">дни</span><span class="lang-en">days</span></span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" data-unit="hours">00</span><span class="cd-label"><span class="lang-ru">часы</span><span class="lang-en">hrs</span></span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" data-unit="minutes">00</span><span class="cd-label"><span class="lang-ru">мин</span><span class="lang-en">min</span></span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" data-unit="seconds">00</span><span class="cd-label"><span class="lang-ru">сек</span><span class="lang-en">sec</span></span></div>
+      </div>
+      <p class="camp-countdown-note"><span class="lang-ru">Успей забронировать место по текущей цене до 1 ноября — дальше цена вырастет.</span><span class="lang-en">Reserve your spot at the current price before November 1 — the price goes up after that.</span></p>
+    </div>
+  </div>
+
+  <div class="camp-block section-pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="eyebrow"><span class="lang-ru">Что внутри</span><span class="lang-en">What's inside</span></span><h2 class="big" style="margin-top:16px;"><span class="lang-ru">ЧТО ТЕБЯ ЖДЁТ</span><span class="lang-en">WHAT AWAITS YOU</span></h2></div>
+        <span class="section-num">02 / CAMP</span>
+      </div>
+    </div>
+    <div class="camp-list reveal">
+      <div><span class="n">01</span><h4><span class="lang-ru">Тренировки</span><span class="lang-en">Training</span></h4><p><span class="lang-ru">6 часов практики каждый день с лучшими тренерами: растяжка, закачка, мастер-классы по пауэру и брейкингу.</span><span class="lang-en">6 hours of practice every day with the best coaches — stretching, strength work, power and breaking masterclasses.</span></p></div>
+      <div><span class="n">02</span><h4><span class="lang-ru">Программа</span><span class="lang-en">Program</span></h4><p><span class="lang-ru">Помимо тренировок участников лагеря ждёт увлекательная, познавательная и оздоровительная программа.</span><span class="lang-en">Beyond training, camp participants get an exciting, educational, and wellness-focused program.</span></p></div>
+      <div><span class="n">03</span><h4><span class="lang-ru">Батлы</span><span class="lang-en">Battles</span></h4><p><span class="lang-ru">Ежедневные баттлы, цели и призы каждый день.</span><span class="lang-en">Daily battles, goals and prizes every day.</span></p></div>
+      <div><span class="n">04</span><h4><span class="lang-ru">Комьюнити</span><span class="lang-en">Community</span></h4><p><span class="lang-ru">Ребята со всей России станут друзьями — ведь они все хотят стать сильнее.</span><span class="lang-en">People from all over Russia become friends — they all want the same thing: to get stronger.</span></p></div>
+    </div>
+  </div>
+
+  <div class="camp-time">
+    <div class="wrap camp-time-inner reveal">
+      <div class="camp-time-text">
+        <span class="eyebrow"><span class="lang-ru">Ограниченное время</span><span class="lang-en">Limited time</span></span>
+        <h2 class="big" style="margin:16px 0 22px;"><span class="lang-ru">ВРЕМЯ<br>НЕ ЖДЁТ</span><span class="lang-en">TIME<br>WON'T WAIT</span></h2>
+        <p><span class="lang-ru">С каждым днём мест в лагере остаётся всё меньше и меньше — поэтому успей записаться и прокачаться вместе с нами.</span><span class="lang-en">Every day there are fewer spots left at the camp — grab yours and level up with us.</span></p>
+      </div>
+      <div class="camp-time-art">
+        <img src="assets/yoda.png" alt="Enter The Power — время не ждёт">
+      </div>
+    </div>
+  </div>
+
+  <div class="camp-results wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="lang-ru">Итог</span><span class="lang-en">Outcome</span></span><h2 class="big" style="margin-top:16px;"><span class="lang-ru">РЕЗУЛЬТАТ</span><span class="lang-en">RESULT</span></h2></div>
+      <span class="section-num">03 / RESULT</span>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2v20M2 12h20"/></svg></div>
+        <h4><span class="lang-ru">Понимание пауэрмува</span><span class="lang-en">Power-move understanding</span></h4><p><span class="lang-ru">Новые знания, новые методики обучения и понимание, как выиграть баттл — вырастет до очень высокого уровня.</span><span class="lang-en">New knowledge, new training methods, and an understanding of how to win a battle — leveled up hard.</span></p>
+      </div>
+      <div class="result-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/></svg></div>
+        <h4><span class="lang-ru">Физическое состояние</span><span class="lang-en">Physical condition</span></h4><p><span class="lang-ru">Сила, выносливость, скорость и эластичность дадут огромный буст во время и после прохождения лагеря.</span><span class="lang-en">Strength, endurance, speed, and flexibility get a huge boost during and after the camp.</span></p>
+      </div>
+      <div class="result-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20 L12 4 L20 20"/></svg></div>
+        <h4><span class="lang-ru">Мотивация</span><span class="lang-en">Motivation</span></h4><p><span class="lang-ru">После лагеря будет получен колоссальный заряд, мотивация и желание расти ещё выше.</span><span class="lang-en">You'll leave with a massive charge of motivation and the drive to grow even further.</span></p>
+      </div>
+      <div class="result-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="4" width="16" height="16"/></svg></div>
+        <h4><span class="lang-ru">Память и связи</span><span class="lang-en">Memories & connections</span></h4><p><span class="lang-ru">И конечно же после лагеря ребята сплотятся, будут дружить и общаться — а ещё останется много крутых фото и видео на память!</span><span class="lang-en">And of course, the crew bonds for real — friendships, hangouts, and a ton of great photos and videos to remember it by!</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="camp-slots">
+    <div class="wrap inner reveal">
+      <span class="eyebrow"><span class="lang-ru">Осталось мест</span><span class="lang-en">Places left</span></span>
+      <div class="num">50</div>
+      <p><span class="lang-ru">количество мест ограничено</span><span class="lang-en">seats are limited</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+    <div class="modal-form-wrap">
+      <h3><span class="lang-ru">Бронь места</span><span class="lang-en">Reserve a Spot</span></h3>
+      <p class="modal-sub"><span class="lang-ru">Заполните форму — мы свяжемся с вами для подтверждения оплаты и брони.</span><span class="lang-en">Fill out the form — we'll reach out to confirm payment and your spot.</span></p>
+      <form id="bookingForm">
+        <div class="field">
+          <label><span class="lang-ru">Имя</span><span class="lang-en">Name</span></label>
+          <input type="text" required placeholder="Иван Иванов">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label><span class="lang-ru">Телефон</span><span class="lang-en">Phone</span></label>
+            <input type="tel" required placeholder="+7 900 000 00 00">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" required placeholder="you@mail.com">
+          </div>
+        </div>
+        <div class="field">
+          <label><span class="lang-ru">Способ оплаты</span><span class="lang-en">Payment method</span></label>
+          <div class="pay-methods">
+            <label><input type="radio" name="pay" value="card" checked><span><span class="lang-ru">Карта</span><span class="lang-en">Card</span></span></label>
+            <label><input type="radio" name="pay" value="sbp"><span>СБП / SBP</span></label>
+          </div>
+        </div>
+        <div class="consent-field">
+          <input type="checkbox" id="campConsent" required>
+          <label for="campConsent"><span class="lang-ru">Я принимаю условия <a href="legal.html#oferta" target="_blank" rel="noopener">публичной оферты</a> и даю <a href="privacy.html#consent" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.</span><span class="lang-en">I accept the terms of the <a href="legal.html#oferta" target="_blank" rel="noopener">public offer</a> and give my <a href="privacy.html#consent" target="_blank" rel="noopener">consent to personal data processing</a>.</span></label>
+        </div>
+        <button type="submit" class="btn"><span class="lang-ru">Перейти к оплате</span><span class="lang-en">Proceed to payment</span></button>
+        <p class="booking-note"><span class="lang-ru">После отправки формы в новой вкладке откроется страница оплаты ЮKassa. Мы также свяжемся с вами, чтобы подтвердить бронь.</span><span class="lang-en">After you submit, the YooKassa payment page will open in a new tab. We'll also reach out to confirm your spot.</span></p>
+        <p class="legal-payment-note"><span class="lang-ru">Оплачивая бронь, вы соглашаетесь с <a href="legal.html#oferta" target="_blank" rel="noopener">публичной офертой</a>.</span><span class="lang-en">By paying for your spot, you agree to the <a href="legal.html#oferta" target="_blank" rel="noopener">public offer</a>.</span></p>
+      </form>
+    </div>
+    <div class="booking-success">
+      <div class="ic">&#10003;</div>
+      <h3><span class="lang-ru">Заявка отправлена</span><span class="lang-en">Request sent</span></h3>
+      <p class="modal-sub"><span class="lang-ru">Спасибо! Мы свяжемся с вами в ближайшее время, чтобы подтвердить бронь и оплату.</span><span class="lang-en">Thanks! We'll be in touch shortly to confirm your spot and payment.</span></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-top">
+    <div>
+      <a href="index.html" class="footer-logo" style="display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;"><img src="assets/logo.png" alt="ETP" style="width:46px;height:46px;object-fit:contain;filter:invert(1);flex-shrink:0;">ENTER THE<br>POWER</a>
+      <p><span class="lang-ru">Танцевальная команда, тренировочный лагерь и школа силы для тех, кто не сбавляет темп.</span><span class="lang-en">A dance team, training camp, and school of power for those who never slow down.</span></p>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Навигация</span><span class="lang-en">Navigate</span></h5>
+      <ul>
+        <li><a href="videos.html"><span class="lang-ru">Видео</span><span class="lang-en">Videos</span></a></li>
+        <li><a href="shop.html"><span class="lang-ru">Магазин</span><span class="lang-en">Shop</span></a></li>
+        <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
+        <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
+        <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Инфо</span><span class="lang-en">Info</span></h5>
+      <ul>
+        <li><a href="about.html"><span class="lang-ru">О нас</span><span class="lang-en">About us</span></a></li>
+        <li><a href="book.html"><span class="lang-ru">Книги</span><span class="lang-en">Books</span></a></li>
+        <li><a href="legal.html"><span class="lang-ru">Оферта и реквизиты</span><span class="lang-en">Offer &amp; Details</span></a></li>
+        <li><a href="privacy.html"><span class="lang-ru">Конфиденциальность</span><span class="lang-en">Privacy</span></a></li>
+        <li><a href="https://t.me/enter_the_power" target="_blank" rel="noopener"><span class="lang-ru">Контакты</span><span class="lang-en">Contacts</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Соцсети</span><span class="lang-en">Social</span></h5>
+      <ul>
+        <li><a href="https://www.youtube.com/@Enter-the-Power" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.instagram.com/enter.the.power/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://t.me/enter_the_power" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="https://vk.ru/enterthepower" target="_blank" rel="noopener">VK</a></li>
+        <li><a href="https://soundcloud.com/enter_the_power" target="_blank" rel="noopener">SoundCloud</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 ENTER THE POWER. <span class="lang-ru">Все права защищены.</span><span class="lang-en">All rights reserved.</span></span>
+    <div class="socials">
+      <a href="https://www.youtube.com/@Enter-the-Power" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/enter.the.power/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://t.me/enter_the_power" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://vk.ru/enterthepower" target="_blank" rel="noopener">VK</a>
+      <a href="https://soundcloud.com/enter_the_power" target="_blank" rel="noopener">SoundCloud</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

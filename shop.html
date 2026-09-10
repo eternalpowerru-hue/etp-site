@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP — ENTER THE POWER</title>
+<meta name="description" content="Enter The Power shop — clothes and accessories.">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-banner-inner">
+    <p><span class="lang-ru">Мы используем cookie-файлы для корректной работы сайта и запоминания ваших настроек. Подробнее — в <a href="privacy.html#cookies">политике cookie</a>.</span><span class="lang-en">We use cookies to make the site work properly and remember your preferences. More in our <a href="privacy.html#cookies">cookie policy</a>.</span></p>
+    <button type="button" id="cookieAccept" class="btn"><span class="lang-ru">Принять</span><span class="lang-en">Accept</span></button>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <a href="index.html" class="logo"><span class="mark"><img src="assets/logo.png" alt="ETP"></span>ENTER THE POWER</a>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="videos.html"><span class="lang-ru">видео</span><span class="lang-en">videos</span></a></li>
+      <li><a href="shop.html"><span class="lang-ru">магазин</span><span class="lang-en">shop</span></a></li>
+      <li><a href="camp.html"><span class="lang-ru">кэмп</span><span class="lang-en">camp</span></a></li>
+      <li><a href="course.html"><span class="lang-ru">курс</span><span class="lang-en">course</span></a></li>
+      <li><a href="music.html"><span class="lang-ru">музыка</span><span class="lang-en">music</span></a></li>
+    </ul>
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" data-set-lang="ru" class="active">RU</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="drawer" id="drawer">
+  <ul>
+    <li><a href="videos.html"><span class="lang-ru">Видео</span><span class="lang-en">Videos</span></a></li>
+    <li><a href="shop.html"><span class="lang-ru">Магазин</span><span class="lang-en">Shop</span></a></li>
+    <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
+    <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
+    <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+  </ul>
+  <div class="lang-switch" id="langSwitchMobile">
+    <button type="button" data-set-lang="ru" class="active">RU</button>
+    <button type="button" data-set-lang="en">EN</button>
+  </div>
+</div>
+<section class="section-pad" id="shop">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="lang-ru">Мерч</span><span class="lang-en">Merch</span></span><h2 class="big" style="margin-top:16px;"><span class="lang-ru">МАГАЗИН</span><span class="lang-en">SHOP</span></h2></div>
+      <span class="section-num">04 / GEAR</span>
+    </div>
+
+    <div class="shop-tabs reveal">
+      <button type="button" class="shop-tab-btn active" data-shop-tab="clothes"><span class="lang-ru">Одежда</span><span class="lang-en">Clothes</span></button>
+      <button type="button" class="shop-tab-btn" data-shop-tab="accessories"><span class="lang-ru">Аксессуары</span><span class="lang-en">Accessories</span></button>
+    </div>
+  </div>
+
+  <div class="shop-panel" data-shop-panel="clothes">
+    <div class="clothes-grid reveal">
+      <div class="cloth-card">
+        <span class="stamp">for respect</span>
+        <div class="cloth-img"><img src="assets/shirt-eternal-power.png" alt="ETERNAL POWER tee — front and back"></div>
+        <div class="info">
+          <div><h3>Eternal Power</h3><span class="not-for-sale"><span class="lang-ru">Не продаётся</span><span class="lang-en">Not for sale</span></span></div>
+        </div>
+      </div>
+      <div class="cloth-card">
+        <span class="stamp">for respect</span>
+        <div class="cloth-img"><img src="assets/shirt-no-clock.png" alt="NO CLOCK tee — front and back"></div>
+        <div class="info">
+          <div><h3>No Clock</h3><span class="not-for-sale"><span class="lang-ru">Не продаётся</span><span class="lang-en">Not for sale</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shop-panel" data-shop-panel="accessories" hidden>
+    <div class="wrap accessories-grid reveal">
+      <div class="accessory-card accessory-card-photo">
+        <div class="accessory-img accessory-img-double">
+          <img src="assets/accessory-pendant.jpg" alt="Enter The Power — подвеска, фото 1">
+          <img src="assets/accessory-pendant-2.jpg" alt="Enter The Power — подвеска, фото 2">
+        </div>
+        <h3><span class="lang-ru">Подвеска</span><span class="lang-en">Pendant</span></h3>
+        <div class="accessory-price">2 200 ₽</div>
+        <button type="button" class="btn outline js-buy-shop" data-item-ru="Подвеска" data-item-en="Pendant" data-price="2 200 ₽" data-pay-url="https://yookassa.ru/my/i/aqKoPzVbYvGw/l"><span class="lang-ru">купить</span><span class="lang-en">buy</span></button>
+      </div>
+      <div class="accessory-card accessory-card-photo">
+        <div class="accessory-img"><img src="assets/accessory-stickers.png" alt="Enter The Power — стикерпак"></div>
+        <h3><span class="lang-ru">Стикерпак + 3D стикеры</span><span class="lang-en">Sticker pack + 3D stickers</span></h3>
+        <div class="accessory-price">800 ₽</div>
+        <button type="button" class="btn outline js-buy-shop" data-item-ru="Стикерпак + 3D стикеры" data-item-en="Sticker pack + 3D stickers" data-price="800 ₽" data-pay-url="https://yookassa.ru/my/i/aqKoGzzTMOd9/l"><span class="lang-ru">купить</span><span class="lang-en">buy</span></button>
+      </div>
+      <div class="accessory-card accessory-mystery">
+        <div class="ic ic-mystery">?</div>
+        <h3>???</h3>
+        <div class="accessory-soon"><span class="lang-ru">СКОРО!</span><span class="lang-en">SOON!</span></div>
+      </div>
+    </div>
+    <p class="legal-payment-note wrap reveal"><span class="lang-ru">Оплачивая товар, вы соглашаетесь с <a href="legal.html#oferta" target="_blank" rel="noopener">публичной офертой</a>. Реквизиты для оплаты — <a href="legal.html#rekvizity" target="_blank" rel="noopener">здесь</a>.</span><span class="lang-en">By paying for an item, you agree to the <a href="legal.html#oferta" target="_blank" rel="noopener">public offer</a>. Payment details are <a href="legal.html#rekvizity" target="_blank" rel="noopener">here</a>.</span></p>
+  </div>
+
+  <div class="modal-overlay" id="shopPurchaseModal">
+    <div class="modal-box">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <div class="modal-form-wrap">
+        <h3><span class="lang-ru">Покупка товара</span><span class="lang-en">Purchase</span></h3>
+        <p class="modal-sub" id="shopPurchaseSelected"></p>
+        <form id="shopPurchaseForm">
+          <div class="field">
+            <label><span class="lang-ru">Имя</span><span class="lang-en">Name</span></label>
+            <input type="text" required placeholder="Иван Иванов">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label><span class="lang-ru">Телефон</span><span class="lang-en">Phone</span></label>
+              <input type="tel" required placeholder="+7 900 000 00 00">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" required placeholder="you@mail.com">
+            </div>
+          </div>
+          <div class="field">
+            <label><span class="lang-ru">Способ оплаты</span><span class="lang-en">Payment method</span></label>
+            <div class="pay-methods">
+              <label><input type="radio" name="payshop" value="card" checked><span><span class="lang-ru">Карта</span><span class="lang-en">Card</span></span></label>
+              <label><input type="radio" name="payshop" value="sbp"><span>СБП / SBP</span></label>
+            </div>
+          </div>
+          <div class="consent-field">
+            <input type="checkbox" id="shopConsent" required>
+            <label for="shopConsent"><span class="lang-ru">Я принимаю условия <a href="legal.html#oferta" target="_blank" rel="noopener">публичной оферты</a> и даю <a href="privacy.html#consent" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.</span><span class="lang-en">I accept the terms of the <a href="legal.html#oferta" target="_blank" rel="noopener">public offer</a> and give my <a href="privacy.html#consent" target="_blank" rel="noopener">consent to personal data processing</a>.</span></label>
+          </div>
+          <button type="submit" class="btn"><span class="lang-ru">Перейти к оплате</span><span class="lang-en">Proceed to payment</span></button>
+          <p class="booking-note"><span class="lang-ru">После отправки формы в новой вкладке откроется страница оплаты ЮKassa.</span><span class="lang-en">After you submit, the YooKassa payment page will open in a new tab.</span></p>
+        </form>
+      </div>
+      <div class="booking-success">
+        <div class="ic">&#10003;</div>
+        <h3><span class="lang-ru">Заявка отправлена</span><span class="lang-en">Request sent</span></h3>
+        <p class="modal-sub"><span class="lang-ru">Спасибо! Мы свяжемся с вами в ближайшее время, чтобы подтвердить покупку и оплату.</span><span class="lang-en">Thanks! We'll be in touch shortly to confirm your purchase and payment.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap footer-top">
+    <div>
+      <a href="index.html" class="footer-logo" style="display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;"><img src="assets/logo.png" alt="ETP" style="width:46px;height:46px;object-fit:contain;filter:invert(1);flex-shrink:0;">ENTER THE<br>POWER</a>
+      <p><span class="lang-ru">Танцевальная команда, тренировочный лагерь и школа силы для тех, кто не сбавляет темп.</span><span class="lang-en">A dance team, training camp, and school of power for those who never slow down.</span></p>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Навигация</span><span class="lang-en">Navigate</span></h5>
+      <ul>
+        <li><a href="videos.html"><span class="lang-ru">Видео</span><span class="lang-en">Videos</span></a></li>
+        <li><a href="shop.html"><span class="lang-ru">Магазин</span><span class="lang-en">Shop</span></a></li>
+        <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
+        <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
+        <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Инфо</span><span class="lang-en">Info</span></h5>
+      <ul>
+        <li><a href="about.html"><span class="lang-ru">О нас</span><span class="lang-en">About us</span></a></li>
+        <li><a href="book.html"><span class="lang-ru">Книги</span><span class="lang-en">Books</span></a></li>
+        <li><a href="legal.html"><span class="lang-ru">Оферта и реквизиты</span><span class="lang-en">Offer &amp; Details</span></a></li>
+        <li><a href="privacy.html"><span class="lang-ru">Конфиденциальность</span><span class="lang-en">Privacy</span></a></li>
+        <li><a href="https://t.me/enter_the_power" target="_blank" rel="noopener"><span class="lang-ru">Контакты</span><span class="lang-en">Contacts</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5><span class="lang-ru">Соцсети</span><span class="lang-en">Social</span></h5>
+      <ul>
+        <li><a href="https://www.youtube.com/@Enter-the-Power" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.instagram.com/enter.the.power/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://t.me/enter_the_power" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="https://vk.ru/enterthepower" target="_blank" rel="noopener">VK</a></li>
+        <li><a href="https://soundcloud.com/enter_the_power" target="_blank" rel="noopener">SoundCloud</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 ENTER THE POWER. <span class="lang-ru">Все права защищены.</span><span class="lang-en">All rights reserved.</span></span>
+    <div class="socials">
+      <a href="https://www.youtube.com/@Enter-the-Power" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/enter.the.power/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://t.me/enter_the_power" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://vk.ru/enterthepower" target="_blank" rel="noopener">VK</a>
+      <a href="https://soundcloud.com/enter_the_power" target="_blank" rel="noopener">SoundCloud</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
