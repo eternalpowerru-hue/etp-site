@@ -49,6 +49,10 @@
 
   .wrap{max-width:1400px;margin:0 auto;padding:0 6vw;}
 
+  @media (max-width:640px){
+    .wrap{padding:0 7.5vw;}
+  }
+
   .eyebrow{
     font-size:12px;
     letter-spacing:.35em;
@@ -496,7 +500,10 @@
     .camp-list{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr;}
-    .hero h1{font-size:16vw;}
+    .hero h1{font-size:15vw;}
+    .hero-content{padding:0 7.5vw 8vw;}
+    .hero-eyebrow{padding-right:6vw;}
+    .course-hero h2{font-size:clamp(38px,13vw,90px);}
     .camp-meta{gap:28px;}
     .about-stats{gap:30px;}
     .plans-grid{grid-template-columns:1fr;}

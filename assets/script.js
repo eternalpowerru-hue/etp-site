@@ -1,4 +1,36 @@
 
+  // ============ Yandex Cloud lead capture ============
+  // Вставьте сюда публичный URL вашей Yandex Cloud Function (см. инструкцию).
+  // Пример: https://functions.yandexcloud.net/xxxxxxxxxxxxxxxxxxxx
+  const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ejc5rvmfml0qcfk9nn';
+
+  function sendLeadToYandex(sourceTitle, formEl){
+    if (!YANDEX_LEADS_URL) return;
+    try {
+      const name = formEl.querySelector('input[type="text"]')?.value || '';
+      const phone = formEl.querySelector('input[type="tel"]')?.value || '';
+      const email = formEl.querySelector('input[type="email"]')?.value || '';
+      const payMethod = formEl.querySelector('input[type="radio"]:checked')?.value || '';
+
+      fetch(YANDEX_LEADS_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          source: sourceTitle,
+          name: name,
+          phone: phone,
+          email: email,
+          pay_method: payMethod,
+          page_url: window.location.href,
+          created_at: new Date().toISOString()
+        })
+      }).catch(err => console.error('Yandex lead error:', err));
+    } catch (err) {
+      console.error('Yandex lead error:', err);
+    }
+  }
+
+
   // shared consent checkbox validation
   function ensureConsentError(field){
     let err = field.nextElementSibling;
@@ -155,6 +187,7 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (!validateCampConsent()) return;
+        sendLeadToYandex('Заявка: бронь кэмпа', form);
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
         window.open(campPaymentUrl, '_blank', 'noopener');
@@ -254,6 +287,7 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (!validateCourseConsent()) return;
+        sendLeadToYandex('Заявка: покупка курса', form);
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
         if (coursePaymentUrl) window.open(coursePaymentUrl, '_blank', 'noopener');
@@ -332,6 +366,7 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (!validateShopConsent()) return;
+        sendLeadToYandex('Заявка: покупка товара', form);
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
         if (shopPaymentUrl) window.open(shopPaymentUrl, '_blank', 'noopener');
