@@ -32,6 +32,7 @@
       <li><a href="camp.html"><span class="lang-ru">кэмп</span><span class="lang-en">camp</span></a></li>
       <li><a href="course.html"><span class="lang-ru">курс</span><span class="lang-en">course</span></a></li>
       <li><a href="music.html"><span class="lang-ru">музыка</span><span class="lang-en">music</span></a></li>
+      <li><a href="reviews.html"><span class="lang-ru">отзывы</span><span class="lang-en">reviews</span></a></li>
     </ul>
     <div class="lang-switch" id="langSwitch">
       <button type="button" data-set-lang="ru" class="active">RU</button>
@@ -48,6 +49,7 @@
     <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
     <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
     <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+    <li><a href="reviews.html"><span class="lang-ru">Отзывы</span><span class="lang-en">Reviews</span></a></li>
   </ul>
   <div class="lang-switch" id="langSwitchMobile">
     <button type="button" data-set-lang="ru" class="active">RU</button>
@@ -146,16 +148,20 @@
   <div class="camp-hero">
     <div class="camp-hero-media"><img src="https://picsum.photos/seed/entrepower-camp/1800/1200" alt=""></div>
     <div class="wrap camp-hero-content">
-      <span class="eyebrow reveal"><span class="lang-ru">Зимний интенсив</span><span class="lang-en">Winter intensive</span></span>
-      <h2 class="reveal" style="margin-top:18px;">ENTER THE<br>POWER CAMP</h2>
-      <p class="camp-lead reveal"><span class="lang-ru">Лагерь нацелен на развитие павер брейка и всех возможных силовых показателей, углубление в культуру павера и сплочения ребят, которые топят за одно дело.</span><span class="lang-en">The camp is focused on developing power breaking and every strength metric that comes with it — going deeper into power culture and bringing together people who are all in for the same cause.</span></p>
-      <div class="camp-meta reveal">
-        <div><b><span class="lang-ru">3—9 января</span><span class="lang-en">Jan 3—9</span></b><span><span class="lang-ru">7 дней</span><span class="lang-en">7 days</span></span></div>
-        <div><b><span class="lang-ru">Москва</span><span class="lang-en">Moscow</span></b><span><span class="lang-ru">локация</span><span class="lang-en">location</span></span></div>
-        <div><b><span class="lang-ru">50 мест</span><span class="lang-en">50 seats</span></b><span><span class="lang-ru">лимит</span><span class="lang-en">limited</span></span></div>
-        <div><b>51 900 ₽</b><span><span class="lang-ru">цена до 1 ноября</span><span class="lang-en">price until Nov 1</span></span></div>
+      <div class="camp-hero-text">
+        <span class="eyebrow reveal"><span class="lang-ru">Зимний интенсив</span><span class="lang-en">Winter intensive</span></span>
+        <h2 class="reveal" style="margin-top:18px;">ENTER THE<br>POWER CAMP</h2>
+        <div class="camp-meta reveal">
+          <div><b><span class="lang-ru">3—9 января</span><span class="lang-en">Jan 3—9</span></b><span><span class="lang-ru">7 дней</span><span class="lang-en">7 days</span></span></div>
+          <div><b><span class="lang-ru">Москва</span><span class="lang-en">Moscow</span></b><span><span class="lang-ru">локация</span><span class="lang-en">location</span></span></div>
+          <div><b><span class="lang-ru">50 мест</span><span class="lang-en">50 seats</span></b><span><span class="lang-ru">лимит</span><span class="lang-en">limited</span></span></div>
+          <div><b>51 900 ₽</b><span><span class="lang-ru">цена до 1 ноября</span><span class="lang-en">price until Nov 1</span></span></div>
+        </div>
+        <button type="button" id="bookTriggerBtn" class="btn reveal"><span class="lang-ru">забронировать место</span><span class="lang-en">reserve your seat</span></button>
       </div>
-      <button type="button" id="bookTriggerBtn" class="btn reveal"><span class="lang-ru">забронировать место</span><span class="lang-en">reserve your seat</span></button>
+      <div class="camp-hero-poster reveal">
+        <img src="assets/camp-poster.jpg" alt="Enter The Power Camp — Москва, 3–9 января">
+      </div>
     </div>
   </div>
 
@@ -207,7 +213,7 @@
   <div class="camp-results wrap">
     <div class="section-head reveal">
       <div><span class="eyebrow"><span class="lang-ru">Итог</span><span class="lang-en">Outcome</span></span><h2 class="big" style="margin-top:16px;"><span class="lang-ru">РЕЗУЛЬТАТ</span><span class="lang-en">RESULT</span></h2></div>
-      <span class="section-num">03 / RESULT</span>
+      
     </div>
     <div class="results-grid reveal">
       <div class="result-item">
@@ -388,7 +394,10 @@
     <div class="course-hero-top">
       <div>
         <span class="eyebrow reveal"><span class="lang-ru">Учись силе</span><span class="lang-en">Learn the power</span></span>
-        <h2 class="reveal" style="margin-top:18px;">1 CLASS<br><span style="color:var(--red)">COURSE</span></h2>
+        <h2 class="reveal" style="margin-top:18px;">1 CLASS<br><span style="color:var(--red)">TUTORIALS</span></h2>
+      </div>
+      <div class="course-mid-logo reveal">
+        <img src="assets/course-logo-text.png" alt="Enter The Power — Course of Power Moves">
       </div>
       <div class="course-poster reveal">
         <img src="assets/course-poster.jpg" alt="Enter The Power — Course of Power Moves">
@@ -555,6 +564,39 @@
   </div>
 </section>
 
+<section class="section-pad" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="lang-ru">Нам доверяют</span><span class="lang-en">They trust us</span></span>
+        <h2 class="big" style="margin-top:16px;"><span class="lang-ru">ОТЗЫВЫ О НАШЕМ ЛАГЕРЕ</span><span class="lang-en">REVIEWS ABOUT OUR CAMP</span></h2>
+      </div>
+      <span class="section-num">08 / TRUST</span>
+    </div>
+
+    <div class="reviews-team reveal">
+      <img src="assets/reviews-team.jpg" alt="Enter The Power Camp — команда">
+    </div>
+
+    <div class="reviews-grid reveal">
+      <img src="assets/review-1.jpg" alt="Отзыв о лагере Enter The Power">
+      <img src="assets/review-2.jpg" alt="Отзыв о лагере Enter The Power">
+      <img src="assets/review-3.jpg" alt="Отзыв о лагере Enter The Power">
+      <img src="assets/review-4.jpg" alt="Отзыв о лагере Enter The Power">
+    </div>
+
+    <h3 class="reviews-subhead reveal"><span class="lang-ru">Отзывы о курсе</span><span class="lang-en">Course reviews</span></h3>
+    <div class="reviews-grid reviews-grid-course reveal">
+      <img src="assets/review-course-1.jpg" alt="Отзывы о курсе Enter The Power">
+    </div>
+
+    <div class="reviews-thanks reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20.5s-7.5-4.6-9.8-9.3C.6 7.8 2.2 4.5 5.5 4c2-.3 3.7.6 4.9 2.3.3.4.9.4 1.2 0C12.8 4.6 14.5 3.7 16.5 4c3.3.5 4.9 3.8 3.3 7.2C17.5 15.9 12 20.5 12 20.5z"/></svg>
+      <p><span class="lang-ru">Спасибо за доверие и ваши отзывы!</span><span class="lang-en">Thank you for trusting us and for your reviews!</span></p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap footer-top">
     <div>
@@ -569,6 +611,7 @@
         <li><a href="camp.html"><span class="lang-ru">Кэмп</span><span class="lang-en">Camp</span></a></li>
         <li><a href="course.html"><span class="lang-ru">Курс</span><span class="lang-en">Course</span></a></li>
         <li><a href="music.html"><span class="lang-ru">Музыка</span><span class="lang-en">Music</span></a></li>
+        <li><a href="reviews.html"><span class="lang-ru">Отзывы</span><span class="lang-en">Reviews</span></a></li>
       </ul>
     </div>
     <div class="footer-col">
