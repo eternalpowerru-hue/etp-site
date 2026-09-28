@@ -4,7 +4,14 @@
   // Пример: https://functions.yandexcloud.net/xxxxxxxxxxxxxxxxxxxx
   const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ejc5rvmfml0qcfk9nn';
 
-  function sendLeadToYandex(sourceTitle, formEl){
+  // ============ Приём оплаты курса + выдача доступа только после подтверждения платежа ============
+  // Вставьте сюда URL Cloud Function "create-payment" (см. инструкцию к бэкенду).
+  // Пока это поле пустое, кнопки покупки курса используют старые статические ссылки ЮKassa
+  // БЕЗ привязки заказа к оплате — настройте бэкенд, чтобы ссылка на Telegram-канал
+  // приходила клиенту только после реального payment.succeeded.
+  const CREATE_PAYMENT_URL = '';
+
+  function sendLeadToYandex(sourceTitle, formEl, extra){
     if (!YANDEX_LEADS_URL) return;
     try {
       const name = formEl.querySelector('input[type="text"]')?.value || '';
@@ -15,7 +22,7 @@
       fetch(YANDEX_LEADS_URL, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
+        body: JSON.stringify(Object.assign({
           source: sourceTitle,
           name: name,
           phone: phone,
@@ -23,7 +30,7 @@
           pay_method: payMethod,
           page_url: window.location.href,
           created_at: new Date().toISOString()
-        })
+        }, extra || {}))
       }).catch(err => console.error('Yandex lead error:', err));
     } catch (err) {
       console.error('Yandex lead error:', err);
@@ -254,8 +261,7 @@
       document.body.style.overflow = '';
     }
     let coursePaymentUrl = '';
-    let courseTelegramUrl = '';
-    const courseTgLinkEl = document.getElementById('purchaseTgLink');
+    let courseProduct = '';
     document.querySelectorAll('.js-buy').forEach(btn => {
       btn.addEventListener('click', () => {
         if (selectedEl) {
@@ -265,8 +271,7 @@
           selectedEl.textContent = isRu ? `${plan} — ${price}` : `${plan} — ${price}`;
         }
         coursePaymentUrl = btn.dataset.payUrl || '';
-        courseTelegramUrl = btn.dataset.tgUrl || '';
-        if (courseTgLinkEl) courseTgLinkEl.href = courseTelegramUrl || '#';
+        courseProduct = btn.dataset.product || '';
         if (formWrap) formWrap.style.display = '';
         if (successBox) successBox.style.display = 'none';
         if (form) form.reset();
@@ -290,14 +295,37 @@
     const validateCourseConsent = setupConsentValidation(document.getElementById('courseConsent'));
 
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!validateCourseConsent()) return;
-        sendLeadToYandex('Заявка: покупка курса', form);
+        sendLeadToYandex('Заявка: покупка курса', form, {product: courseProduct});
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
+
+        // Доступ к материалам курса (ссылка на закрытый Telegram-канал) приходит
+        // ТОЛЬКО после подтверждения оплаты — бэкенд сам присылает её на email/в Telegram
+        // после события payment.succeeded от ЮKassa. Ссылки нет и не может быть в этом файле.
+        if (CREATE_PAYMENT_URL) {
+          try {
+            const name = form.querySelector('input[type="text"]')?.value || '';
+            const phone = form.querySelector('input[type="tel"]')?.value || '';
+            const email = form.querySelector('input[type="email"]')?.value || '';
+            const res = await fetch(CREATE_PAYMENT_URL, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({product: courseProduct, name, phone, email})
+            });
+            const data = await res.json();
+            if (data && data.confirmation_url) {
+              window.location.href = data.confirmation_url;
+              return;
+            }
+          } catch (err) {
+            console.error('create-payment error:', err);
+          }
+        }
+        // Резерв на время, пока CREATE_PAYMENT_URL не настроен: старая статическая ссылка ЮKassa.
         if (coursePaymentUrl) window.open(coursePaymentUrl, '_blank', 'noopener');
-        if (courseTelegramUrl) window.open(courseTelegramUrl, '_blank', 'noopener');
       });
     }
   }
