@@ -182,6 +182,7 @@
     if (firstPay) firstPay.closest('label').classList.add('active');
     const validateCampConsent = setupConsentValidation(document.getElementById('campConsent'));
     const campPaymentUrl = 'https://yookassa.ru/my/i/aqKfBk7WXGgv/l';
+    const campTelegramUrl = 'https://t.me/enterthepower';
 
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -191,6 +192,7 @@
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
         window.open(campPaymentUrl, '_blank', 'noopener');
+        window.open(campTelegramUrl, '_blank', 'noopener');
       });
     }
   }
@@ -252,6 +254,8 @@
       document.body.style.overflow = '';
     }
     let coursePaymentUrl = '';
+    let courseTelegramUrl = '';
+    const courseTgLinkEl = document.getElementById('purchaseTgLink');
     document.querySelectorAll('.js-buy').forEach(btn => {
       btn.addEventListener('click', () => {
         if (selectedEl) {
@@ -261,6 +265,8 @@
           selectedEl.textContent = isRu ? `${plan} — ${price}` : `${plan} — ${price}`;
         }
         coursePaymentUrl = btn.dataset.payUrl || '';
+        courseTelegramUrl = btn.dataset.tgUrl || '';
+        if (courseTgLinkEl) courseTgLinkEl.href = courseTelegramUrl || '#';
         if (formWrap) formWrap.style.display = '';
         if (successBox) successBox.style.display = 'none';
         if (form) form.reset();
@@ -291,6 +297,7 @@
         if (formWrap) formWrap.style.display = 'none';
         if (successBox) successBox.style.display = 'block';
         if (coursePaymentUrl) window.open(coursePaymentUrl, '_blank', 'noopener');
+        if (courseTelegramUrl) window.open(courseTelegramUrl, '_blank', 'noopener');
       });
     }
   }
