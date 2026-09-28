@@ -1,8 +1,8 @@
 
   // ============ Yandex Cloud lead capture ============
   // Вставьте сюда публичный URL вашей Yandex Cloud Function (см. инструкцию).
-  // Пример: https://functions.yandexcloud.net/xxxxxxxxxxxxxxxxxxxx
-  const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ejc5rvmfml0qcfk9nn';
+  // Пример: https://functions.yandexcloud.net/d4ej24f8ht7ruvr5dd5t
+  const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ej24f8ht7ruvr5dd5t';
 
   // ============ Приём оплаты курса + выдача доступа только после подтверждения платежа ============
   // Вставьте сюда URL Cloud Function "create-payment" (см. инструкцию к бэкенду).
