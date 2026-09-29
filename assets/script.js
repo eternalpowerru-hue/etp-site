@@ -1,8 +1,8 @@
 
   // ============ Yandex Cloud lead capture ============
   // Вставьте сюда публичный URL вашей Yandex Cloud Function (см. инструкцию).
-  // Пример: https://functions.yandexcloud.net/d4ej24f8ht7ruvr5dd5t
-  const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ej24f8ht7ruvr5dd5t';
+  // Пример: https://functions.yandexcloud.net/xxxxxxxxxxxxxxxxxxxx
+  const YANDEX_LEADS_URL = 'https://functions.yandexcloud.net/d4ejc5rvmfml0qcfk9nn';
 
   // ============ Приём оплаты курса + выдача доступа только после подтверждения платежа ============
   // Вставьте сюда URL Cloud Function "create-payment" (см. инструкцию к бэкенду).
@@ -21,6 +21,7 @@
 
       fetch(YANDEX_LEADS_URL, {
         method: 'POST',
+        keepalive: true,
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(Object.assign({
           source: sourceTitle,
@@ -70,11 +71,66 @@
     };
   }
 
+  // shared motion flags
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHoverGlobal = window.matchMedia('(hover: hover)').matches;
+
   // header scroll state
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   }, {passive:true});
+
+  // scroll progress bar
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  if (scrollProgressEl) {
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      scrollProgressEl.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, {passive:true});
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+  }
+
+  // hero: cursor-reactive spotlight glow (desktop only)
+  const heroEl = document.querySelector('.hero');
+  if (heroEl && canHoverGlobal && !prefersReducedMotion) {
+    heroEl.classList.add('has-spotlight');
+    heroEl.addEventListener('mousemove', (e) => {
+      const r = heroEl.getBoundingClientRect();
+      heroEl.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      heroEl.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
+
+  // tilt-on-hover for poster images
+  if (canHoverGlobal && !prefersReducedMotion) {
+    document.querySelectorAll('.course-poster, .camp-hero-poster').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (!img) return;
+      const baseRotate = wrap.classList.contains('course-poster') ? 'rotate(2deg) ' : '';
+      wrap.addEventListener('mousemove', (e) => {
+        const r = wrap.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        img.style.transform = `${baseRotate}perspective(700px) rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg)`;
+      });
+      wrap.addEventListener('mouseleave', () => { img.style.transform = ''; });
+    });
+  }
+
+  // staggered reveal for card grids: convert one group fade into a per-card cascade
+  document.querySelectorAll('.videos-grid, .plans-grid, .clothes-grid, .accessories-grid, .results-grid, .camp-list, .course-list, .reviews-grid, .tracks-grid').forEach(grid => {
+    if (!grid.classList.contains('reveal')) return;
+    grid.classList.remove('reveal', 'in');
+    Array.from(grid.children).forEach((child, i) => {
+      child.classList.add('reveal');
+      child.style.setProperty('--stagger', Math.min(i, 6));
+    });
+  });
 
   // mobile drawer
   const burger = document.getElementById('burger');
@@ -212,21 +268,30 @@
     const minutesEl = el.querySelector('[data-unit="minutes"]');
     const secondsEl = el.querySelector('[data-unit="seconds"]');
     function pad(n){ return String(n).padStart(2,'0'); }
+    function setUnit(unitEl, value){
+      if (unitEl.textContent === value) return;
+      unitEl.textContent = value;
+      if (prefersReducedMotion) return;
+      unitEl.classList.remove('pulse');
+      // force reflow so the animation can replay on consecutive changes
+      void unitEl.offsetWidth;
+      unitEl.classList.add('pulse');
+    }
     function tick(){
       const diff = deadline - Date.now();
       if (diff <= 0) {
-        daysEl.textContent = '00'; hoursEl.textContent = '00';
-        minutesEl.textContent = '00'; secondsEl.textContent = '00';
+        setUnit(daysEl, '00'); setUnit(hoursEl, '00');
+        setUnit(minutesEl, '00'); setUnit(secondsEl, '00');
         return;
       }
       const days = Math.floor(diff / 86400000);
       const hours = Math.floor((diff % 86400000) / 3600000);
       const minutes = Math.floor((diff % 3600000) / 60000);
       const seconds = Math.floor((diff % 60000) / 1000);
-      daysEl.textContent = pad(days);
-      hoursEl.textContent = pad(hours);
-      minutesEl.textContent = pad(minutes);
-      secondsEl.textContent = pad(seconds);
+      setUnit(daysEl, pad(days));
+      setUnit(hoursEl, pad(hours));
+      setUnit(minutesEl, pad(minutes));
+      setUnit(secondsEl, pad(seconds));
     }
     tick();
     setInterval(tick, 1000);
@@ -402,9 +467,26 @@
         e.preventDefault();
         if (!validateShopConsent()) return;
         sendLeadToYandex('Заявка: покупка товара', form);
-        if (formWrap) formWrap.style.display = 'none';
-        if (successBox) successBox.style.display = 'block';
         if (shopPaymentUrl) window.open(shopPaymentUrl, '_blank', 'noopener');
+        closeShopModal();
+        window.location.href = 'shop.html?thanks=1#shop';
       });
     }
   }
+
+  // shop: показать плашку "спасибо за покупку" после возврата с оплаты
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('thanks') !== '1') return;
+    const banner = document.getElementById('shopThanksBanner');
+    if (!banner) return;
+    banner.hidden = false;
+    document.querySelectorAll('.shop-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.shopTab === 'accessories'));
+    document.querySelectorAll('.shop-panel').forEach(panel => { panel.hidden = panel.dataset.shopPanel !== 'accessories'; });
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('thanks');
+      window.history.replaceState({}, '', url.pathname + '#shop');
+    } catch (err) {}
+    setTimeout(() => banner.scrollIntoView({behavior:'smooth', block:'start'}), 150);
+  })();
