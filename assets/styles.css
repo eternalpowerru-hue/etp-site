@@ -887,12 +887,44 @@
   }
 
   /* ================= HERO: mask-wipe headline entrance ================= */
+  .hero h1{padding-bottom:.06em;} /* safety margin so the wipe mask never clips descenders */
   .hero h1.reveal{
     opacity:1; transform:none;
-    clip-path:inset(0 100% -10% 0);
-    transition:clip-path 1.15s var(--ease);
+    clip-path:inset(0 100% 0 0);
+    transition:clip-path 1.1s var(--ease);
   }
-  .hero h1.reveal.in{clip-path:inset(0 0 -10% 0);}
+  .hero h1.reveal.in{clip-path:inset(0 0 0 0);}
+
+  /* hero badge: small animated pill that cycles brand words, fills the space above the headline */
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:11px;
+    margin-bottom:22px; padding:9px 18px 9px 14px;
+    border:1px solid var(--line); background:rgba(255,255,255,.03);
+    font-family:var(--display); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--off);
+  }
+  .hero-badge .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--red-bright); flex-shrink:0;
+    animation:heroBadgeDot 2s var(--ease) infinite;
+  }
+  @keyframes heroBadgeDot{
+    0%{box-shadow:0 0 0 0 rgba(194,58,58,.6);}
+    70%{box-shadow:0 0 0 9px rgba(194,58,58,0);}
+    100%{box-shadow:0 0 0 0 rgba(194,58,58,0);}
+  }
+  .hero-badge-text{display:inline-block; min-width:172px; transition:opacity .3s var(--ease);}
+
+  /* section numbers react as their section comes into focus (works off the existing glow observer) */
+  .section-num{transition:opacity .6s var(--ease), transform .6s var(--ease), color .6s var(--ease); transform:translateX(-8px);}
+  section.section-glow-active .section-num{opacity:1; transform:translateX(0); color:var(--red-bright);}
+
+  /* diagonal shine sweep across thumbnails/product photos on hover */
+  .video-media::after, .cloth-img::after, .accessory-img::after{
+    content:''; position:absolute; top:0; left:-70%; width:40%; height:100%; z-index:2;
+    background:linear-gradient(115deg, transparent, rgba(255,255,255,.16), transparent);
+    transform:skewX(-18deg); transition:left .7s var(--ease); pointer-events:none;
+  }
+  .video-card:hover .video-media::after, .cloth-card:hover .cloth-img::after, .accessory-img:hover::after{left:130%;}
 
   /* cursor-reactive glow inside the hero, desktop only (toggled via JS) */
   .hero.has-spotlight::before{
@@ -937,12 +969,13 @@
     overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     background:var(--near-black); padding:20px 0; white-space:nowrap;
   }
-  .marquee-track{display:inline-flex; width:max-content; animation:marqueeScroll 26s linear infinite;}
+  .marquee-track{display:inline-flex; align-items:center; width:max-content; animation:marqueeScroll 60s linear infinite;}
   .marquee-track span{
-    font-family:var(--display); font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+    font-family:var(--display); font-size:17px; letter-spacing:.16em; text-transform:uppercase;
     color:var(--off); padding:0 22px;
   }
-  .marquee-track span.dot{color:var(--red-bright); padding:0 10px;}
+  .marquee-track span.accent2{color:var(--red-bright); font-size:19px;}
+  .marquee-track span.dot{color:var(--red-bright); padding:0 10px; font-size:8px;}
   .marquee:hover .marquee-track{animation-play-state:paused;}
   @keyframes marqueeScroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 

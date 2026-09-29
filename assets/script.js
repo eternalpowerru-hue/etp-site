@@ -95,6 +95,21 @@
     updateProgress();
   }
 
+  // hero badge: cycle through brand words
+  const heroBadgeText = document.getElementById('heroBadgeText');
+  if (heroBadgeText && !prefersReducedMotion) {
+    const heroWords = ['POWER BREAKING', 'POWER MOVES', 'POWER TRICKS', 'POWER BREAK'];
+    let heroWordIdx = 0;
+    setInterval(() => {
+      heroWordIdx = (heroWordIdx + 1) % heroWords.length;
+      heroBadgeText.style.opacity = '0';
+      setTimeout(() => {
+        heroBadgeText.textContent = heroWords[heroWordIdx];
+        heroBadgeText.style.opacity = '1';
+      }, 300);
+    }, 2600);
+  }
+
   // hero: cursor-reactive spotlight glow (desktop only)
   const heroEl = document.querySelector('.hero');
   if (heroEl && canHoverGlobal && !prefersReducedMotion) {
