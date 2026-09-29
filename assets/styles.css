@@ -891,24 +891,6 @@
      so there is no risk of the headline getting stuck invisible in any browser */
   .hero h1.reveal{transition:opacity 1s var(--ease), transform 1s var(--ease);}
 
-  /* hero badge: small animated pill that cycles brand words, fills the space above the headline */
-  .hero-badge{
-    display:inline-flex; align-items:center; gap:11px;
-    margin-bottom:22px; padding:9px 18px 9px 14px;
-    border:1px solid var(--line); background:rgba(255,255,255,.03);
-    font-family:var(--display); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--off);
-  }
-  .hero-badge .dot{
-    width:7px; height:7px; border-radius:50%; background:var(--red-bright); flex-shrink:0;
-    animation:heroBadgeDot 2s var(--ease) infinite;
-  }
-  @keyframes heroBadgeDot{
-    0%{box-shadow:0 0 0 0 rgba(194,58,58,.6);}
-    70%{box-shadow:0 0 0 9px rgba(194,58,58,0);}
-    100%{box-shadow:0 0 0 0 rgba(194,58,58,0);}
-  }
-  .hero-badge-text{display:inline-block; min-width:172px; transition:opacity .3s var(--ease);}
 
   /* section numbers react as their section comes into focus (works off the existing glow observer) */
   .section-num{transition:opacity .6s var(--ease), transform .6s var(--ease), color .6s var(--ease); transform:translateX(-8px);}
