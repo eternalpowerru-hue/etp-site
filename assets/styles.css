@@ -886,14 +886,10 @@
     pointer-events:none;
   }
 
-  /* ================= HERO: mask-wipe headline entrance ================= */
-  .hero h1{padding-bottom:.06em;} /* safety margin so the wipe mask never clips descenders */
-  .hero h1.reveal{
-    opacity:1; transform:none;
-    clip-path:inset(0 100% 0 0);
-    transition:clip-path 1.1s var(--ease);
-  }
-  .hero h1.reveal.in{clip-path:inset(0 0 0 0);}
+  /* ================= HERO: headline entrance ================= */
+  /* uses the same proven opacity/translateY fade as the rest of .reveal — no clip-path,
+     so there is no risk of the headline getting stuck invisible in any browser */
+  .hero h1.reveal{transition:opacity 1s var(--ease), transform 1s var(--ease);}
 
   /* hero badge: small animated pill that cycles brand words, fills the space above the headline */
   .hero-badge{
