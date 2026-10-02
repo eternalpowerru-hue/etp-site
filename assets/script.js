@@ -234,15 +234,6 @@
       if (e.key === 'Escape' && bookModal.classList.contains('open')) closeModal();
     });
 
-    // payment method active styling
-    bookModal.querySelectorAll('.pay-methods input[type="radio"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        bookModal.querySelectorAll('.pay-methods label').forEach(l => l.classList.remove('active'));
-        radio.closest('label').classList.add('active');
-      });
-    });
-    const firstPay = bookModal.querySelector('.pay-methods input[type="radio"]:checked');
-    if (firstPay) firstPay.closest('label').classList.add('active');
     const validateCampConsent = setupConsentValidation(document.getElementById('campConsent'));
     const campPaymentUrl = 'https://yookassa.ru/my/i/aqKfBk7WXGgv/l';
     const campTelegramUrl = 'https://t.me/enterthepower';
@@ -349,14 +340,6 @@
       if (e.key === 'Escape' && purchaseModal.classList.contains('open')) closePurchaseModal();
     });
 
-    purchaseModal.querySelectorAll('.pay-methods input[type="radio"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        purchaseModal.querySelectorAll('.pay-methods label').forEach(l => l.classList.remove('active'));
-        radio.closest('label').classList.add('active');
-      });
-    });
-    const firstPayC = purchaseModal.querySelector('.pay-methods input[type="radio"]:checked');
-    if (firstPayC) firstPayC.closest('label').classList.add('active');
     const validateCourseConsent = setupConsentValidation(document.getElementById('courseConsent'));
 
     if (form) {
@@ -452,14 +435,6 @@
       if (e.key === 'Escape' && shopPurchaseModal.classList.contains('open')) closeShopModal();
     });
 
-    shopPurchaseModal.querySelectorAll('.pay-methods input[type="radio"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        shopPurchaseModal.querySelectorAll('.pay-methods label').forEach(l => l.classList.remove('active'));
-        radio.closest('label').classList.add('active');
-      });
-    });
-    const firstPayS = shopPurchaseModal.querySelector('.pay-methods input[type="radio"]:checked');
-    if (firstPayS) firstPayS.closest('label').classList.add('active');
     const validateShopConsent = setupConsentValidation(document.getElementById('shopConsent'));
 
     if (form) {

@@ -189,8 +189,8 @@
   }
   .hero h1{
     font-family:var(--display);
-    font-size:clamp(52px, 12vw, 168px);
-    line-height:.88;
+    font-size:clamp(60px, 14.5vw, 210px);
+    line-height:.86;
     text-transform:uppercase;
     letter-spacing:-.01em;
   }
@@ -535,7 +535,7 @@
     .camp-list{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr;}
-    .hero h1{font-size:15vw;}
+    .hero h1{font-size:17vw;}
     .hero-content{padding:0 7.5vw 8vw;}
     .hero-eyebrow{padding-right:6vw;}
     .course-hero h2{font-size:clamp(38px,13vw,90px);}
