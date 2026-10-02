@@ -865,7 +865,6 @@
     font-family:var(--display); font-size:clamp(32px,5.5vw,56px); text-transform:uppercase;
     margin:80px 0 28px;
   }
-  .reviews-grid-course{grid-template-columns:1fr; max-width:280px;}
   .reviews-grid-course img{aspect-ratio:auto;}
 
 
