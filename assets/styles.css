@@ -247,8 +247,9 @@
   .about-text p strong{color:var(--white); font-weight:700;}
   .about-activities{margin:34px 0; max-width:520px;}
   .about-activities-label{
-    font-family:var(--display); font-size:12px; letter-spacing:.15em; text-transform:uppercase;
+    font-family:var(--display); font-size:13px; letter-spacing:.15em; text-transform:uppercase;
     color:var(--red-bright); display:block; margin-bottom:16px;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
   }
   .about-activities ul{display:flex; flex-direction:column; gap:12px;}
   .about-activities li{
@@ -256,7 +257,11 @@
     display:flex; gap:10px; align-items:flex-start;
   }
   .about-activities li::before{content:'—'; color:var(--red-bright); flex-shrink:0;}
-  .about-activities li strong{color:var(--white); font-weight:700;}
+  .about-activities li strong{
+    color:var(--red-bright); font-family:var(--display); font-weight:400;
+    text-transform:uppercase; letter-spacing:.08em; font-size:15px;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
   .about-stats{display:flex; gap:50px; margin-top:46px;}
   .about-stats div b{display:block; font-family:var(--display); font-size:42px; color:var(--red-bright);}
   .about-stats div span{font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--off);}
@@ -299,9 +304,16 @@
   }
   .video-card .tag{font-family:var(--display); font-size:12px; letter-spacing:.15em; color:var(--red-bright); margin-bottom:6px;}
   .video-card h3{font-family:var(--display); font-size:24px; text-transform:uppercase;}
-  .videos-note{margin-top:34px; font-size:13px; color:var(--off); letter-spacing:.05em;}
+  .videos-note{margin-top:34px; font-size:13px; color:var(--off); letter-spacing:.05em; padding:0 6vw;}
   .videos-note a{color:var(--red-bright); font-weight:700; border-bottom:1px solid rgba(194,58,58,.4); padding-bottom:1px;}
   .videos-note a:hover{border-color:var(--red-bright);}
+  .videos-note-label{
+    font-family:var(--display); text-transform:uppercase; letter-spacing:.1em;
+    color:var(--red-bright); font-size:13px; text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  @media (max-width:640px){
+    .videos-note{padding:0 7.5vw;}
+  }
 
   /* ================= CAMP ================= */
   .camp-hero{
@@ -535,6 +547,7 @@
     .camp-list{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr;}
+    .hero{height:auto; min-height:72svh;}
     .hero h1{font-size:17vw;}
     .hero-content{padding:0 7.5vw 8vw;}
     .hero-eyebrow{padding-right:6vw;}
